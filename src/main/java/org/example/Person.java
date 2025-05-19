@@ -12,8 +12,16 @@ public class Person {
     private long id;
     private String name;
 
+    public Person(String name) {
+        this.name = name;
+    }
+
     @ManyToMany
     @JoinTable(name = "person_contract", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns =
     @JoinColumn(name = "contract_id"))
     Set<Contract> contracts = new HashSet<>();
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
 }

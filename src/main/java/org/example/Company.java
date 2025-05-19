@@ -13,9 +13,16 @@ public class Company {
     private long id;
     private String name;
 
+    public Company(String name) {
+        this.name = name;
+    }
+
     @ManyToMany
     @JoinTable(name = "company_contract", joinColumns = @JoinColumn(name = "company_id"), inverseJoinColumns =
     @JoinColumn(name = "contract_id"))
     Set<Contract> contracts = new HashSet<>();
 
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
 }
