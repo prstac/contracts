@@ -24,7 +24,7 @@ public class Contract {
         this.payValue = payValue;
     }
 
-    @ManyToMany(mappedBy = "person")
+    @ManyToMany(mappedBy = "contracts")
     Set<Person> persons = new HashSet<>();
 
     public Set<Person> getPersons() {
@@ -35,6 +35,6 @@ public class Contract {
         return companies;
     }
 
-    @ManyToMany(mappedBy = "company")
+    @ManyToMany(mappedBy = "contracts")
     Set<Company> companies = new HashSet<>();
 }
